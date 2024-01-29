@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real GDP Growth Map with Line Chart</title>
+    <!-- Include Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Include D3.js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="gdp.css" rel="stylesheet" />
+</head>
+<body>
+    <h2 id="header">Real GDP Growth</h2>
+    <div class="container">
+        <div class="layer">
+            <div id="gdpgrowth" class="map"></div>
+            <div id="top" class="top">
+                <h2>Top 5 Countries</h2>
+                <table id="ranking-ascending">
+                    <tbody id="topCountriesTableBody">
+                        <!-- Rows will be added dynamically here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="yearSliderContainer" class="slider">
+            <label for="yearSlider">Select a Year:</label>
+            <input type="range" id="yearSlider" class="yearSlider" min="1980" max="2022" step="1" value="1980" oninput="updateMap(this.value); updateLineChart(this.value);">
+            <div class="slider-label" style="left: 0%;">1980</div>
+            <div class="slider-label" style="left: 25%;">1995</div>
+            <div class="slider-label" style="left: 50%;">2005</div>
+            <div class="slider-label" style="left: 75%;">2015</div>
+            <div class="slider-label" style="left: 100%;">2022</div>
+        </div>
+        <div class="chartcontainer">
+            <div class="chart">
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div id="bottom" class="bottom">
+                <h2>Bottom 5 Countries</h2>
+                <table id="ranking-descending">
+                    <tbody id="bottomCountriesTableBody">
+                        <!-- Rows will be added dynamically here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="gdpgrowth.js"></script>
+</body>
+</html>
